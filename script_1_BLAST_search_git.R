@@ -158,8 +158,8 @@ for (query_counter in 1:length(protein_query_list)) {
     response_parsed <- html_text(content_response)
     response_split <- unlist(strsplit(response_parsed,"\n"))
     if (length(response_split[grep("Time since submission", response_split)])) {
-       print(response_split[grep("\nTime since submission", response_split)])
-     } else if (length(response_split[grep("\nCPU usage limit", response_split)])) {
+       print(response_split[grep("Time since submission", response_split)])
+     } else if (length(response_split[grep("CPU usage limit", response_split)])) {
        print(response_parsed)
        break
      }
