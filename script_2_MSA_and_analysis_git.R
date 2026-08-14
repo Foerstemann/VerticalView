@@ -499,7 +499,7 @@ for(fasta_filename in file_list) {
     # calculate the average for each dipeptide
     dipep_average <- vector()
     for (k in 1:length(dipeptide_colnames)) {
-      dipep_average[k] <- colMeans(dipeptide_df[k+2], na.rm=TRUE)
+      dipep_average[k] <- mean(as.numeric(unlist(dipeptide_df[k+2])), na.rm=TRUE)
     }
     # get the top 40 dipeptides
     dipep_top_40 <- vector()
