@@ -393,7 +393,7 @@ for(fasta_filename in file_list) {
   
   
   
-  # calculate AA statistics
+  # calculate AA statistics for sequences that have at least 2 AA
   AA_analysis_percent <- list("accession" = collapsed_sectioned_sequences$accession)
   AA_analysis_percent[[2]] <- list("species_ID" = collapsed_sectioned_sequences$species_ID)
   for (i in 3:ncol(collapsed_sectioned_sequences)){
@@ -403,7 +403,7 @@ for(fasta_filename in file_list) {
     for (j in 1:length(collapsed_sectioned_sequences[,i])) {
       sequence_AA <- s2c(collapsed_sectioned_sequences[j,i])
       
-      if (length(sequence_AA)>=1) {current_section[j] <- list(round(100*seqinr::count(sequence_AA, wordsize=1, alphabet=aa, freq=TRUE),2))}
+      if (length(sequence_AA)>1) {current_section[j] <- list(round(100*seqinr::count(sequence_AA, wordsize=1, alphabet=aa, freq=TRUE),2))} # this limits to >=2 AA sections
       else {current_section[j] <- NA }
     }
     AA_analysis_percent[[i]] <- current_section
