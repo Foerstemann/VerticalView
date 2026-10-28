@@ -195,9 +195,12 @@ for(fasta_filename in file_list) {
       min_sequence_length_start <- fine_pass_last +1
       print(paste("fine pass first adjusted:", first_pos, "section counter: ", section_counter))
     } else {
+<<<<<<< HEAD
       # need to decrement the section counter so that we keep adding to the same section 
       # unless this is the very first piece that gets rejected
       if (section_counter >1) {section_counter <- section_counter - 1}
+=======
+>>>>>>> b746feb29e2c3f98cd3edb89a29e58ca8fe5fb3a
       # just keep going as if nothing ever happened and extend the previous section
       if (current_state==1) {current_state <- 0} else {current_state <- 1}
       polished_consensus[first_pos:fine_pass_last] <- current_state
@@ -206,7 +209,13 @@ for(fasta_filename in file_list) {
       # need to set the start of the minimal section length to the end of the discarded section
       min_sequence_length_start <- fine_pass_last +1
       first_pos <- previous_first_position
+<<<<<<< HEAD
       
+=======
+      # need to decrement the section counter so that we keep adding to the same section 
+      # unless this is the very first piece that gets rejected
+      if (section_counter >1) {section_counter <- section_counter - 1}
+>>>>>>> b746feb29e2c3f98cd3edb89a29e58ca8fe5fb3a
       
     }
       
